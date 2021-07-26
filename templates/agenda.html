@@ -7,12 +7,15 @@
 </a>
 <ul>
     {% for lista in a %}
-    <li> 
-        {{lista.titulo }} - {{ lista.get_data_evento}} - 
-        (
+    <li>
+        <div style={% if lista.get_evento_atrasado %} "color:red" {% endif%}>
+            {{lista.titulo }} - {{ lista.get_data_evento}} -
+
+            (
             <a href="evento/?id={{ lista.id }}">Editar</a> -
             <a href="evento/delete/{{ lista.id }}">Excluir</a>
-        )
+            )
+        </div>
     </li>
     {% endfor %}
 </ul>
